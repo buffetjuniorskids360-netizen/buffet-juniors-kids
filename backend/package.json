@@ -1,0 +1,61 @@
+{
+  "name": "buffet-financeiro-backend",
+  "version": "1.0.0",
+  "description": "Sistema Financeiro para Buffet Infantil - Backend",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "dev:clean": "npx kill-port 3001 3002 3003 && npm run dev",
+    "stop": "npx kill-port 3001 3002 3003",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push --force",
+    "db:studio": "drizzle-kit studio",
+    "db:reset": "tsx src/scripts/reset-database.ts",
+    "init-db": "tsx src/scripts/init-db.ts"
+  },
+  "keywords": [
+    "buffet",
+    "financeiro",
+    "gestao"
+  ],
+  "author": "Claude Code",
+  "license": "ISC",
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "bcryptjs": "^3.0.2",
+    "connect-pg-simple": "^10.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.4",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.0.1",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "multer": "^2.0.2",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.16.3",
+    "pino": "^9.8.0",
+    "pino-pretty": "^13.1.1",
+    "zod": "^4.0.17"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/connect-pg-simple": "^7.0.3",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/express-session": "^1.18.2",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.2.1",
+    "@types/passport": "^1.0.17",
+    "@types/passport-local": "^1.0.38",
+    "@types/pg": "^8.15.5",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  }
+}

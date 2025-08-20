@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 94.1%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Enhanced Loading Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes wave {
+  0%, 60%, 100% {
+    transform: initial;
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow:
+      .25em 0 0 rgba(0, 0, 0, 0),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: #1f2937;
+    text-shadow:
+      .25em 0 0 rgba(0, 0, 0, 0),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow:
+      .25em 0 0 #1f2937,
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 #1f2937,
+      .5em 0 0 #1f2937;
+  }
+}
+
+@keyframes progress-bar {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 30%;
+  }
+  50% {
+    width: 60%;
+  }
+  75% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+/* Utility classes for loading states */
+.loading-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+.loading-skeleton {
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.loading-wave {
+  animation: wave 1.8s ease-in-out infinite;
+}
+
+.loading-dots::after {
+  content: '...';
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+.loading-breathe {
+  animation: breathe 2.5s ease-in-out infinite;
+}
+
+.loading-progress {
+  animation: progress-bar 1.5s ease-out forwards;
+}
+
+/* Improved pulse animation */
+.pulse-enhanced {
+  animation: pulse-enhanced 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-enhanced {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Staggered loading animations */
+.stagger-loading > * {
+  animation: stagger-item 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-loading > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-loading > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-loading > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-loading > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-loading > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-loading > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes stagger-item {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

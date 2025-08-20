@@ -1,0 +1,9 @@
+-- Script para resetar o banco de dados
+DROP TABLE IF EXISTS "documents" CASCADE;
+DROP TABLE IF EXISTS "payments" CASCADE;
+DROP TABLE IF EXISTS "cash_flow" CASCADE;
+DROP TABLE IF EXISTS "expenses" CASCADE;
+DROP TABLE IF EXISTS "events" CASCADE;
+DROP TABLE IF EXISTS "clients" CASCADE;
+DROP TABLE IF EXISTS "users" CASCADE;
+DROP TABLE IF EXISTS "user_sessions" CASCADE;
