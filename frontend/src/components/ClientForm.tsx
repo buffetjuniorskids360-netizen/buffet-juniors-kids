@@ -203,7 +203,7 @@ export default function ClientForm({ isOpen, onClose, onSubmit, client, isLoadin
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-white" style={{ padding: '32px' }}>
+      <DialogContent className="sm:max-w-[425px]" style={{ padding: '32px' }}>
         <DialogHeader style={{ marginBottom: '24px' }}>
           <DialogTitle style={{ marginBottom: '8px' }}>
             {client ? 'Editar Cliente' : 'Novo Cliente'}

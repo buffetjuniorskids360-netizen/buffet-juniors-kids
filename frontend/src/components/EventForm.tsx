@@ -178,7 +178,7 @@ export default function EventForm({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white" style={{ padding: '32px' }}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto" style={{ padding: '32px' }}>
         <DialogHeader style={{ marginBottom: '24px' }}>
           <DialogTitle className="flex items-center text-slate-900" style={{ gap: '12px' }}>
             <Calendar className="w-6 h-6 text-blue-600" />

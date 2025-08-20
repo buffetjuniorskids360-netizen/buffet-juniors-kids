@@ -233,3 +233,15 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Modal Content Background Fix */
+[data-radix-dialog-content] {
+  background-color: white !important;
+  background: white !important;
+}
+
+/* Modal Overlay Backdrop Fix */
+[data-radix-dialog-overlay] {
+  backdrop-filter: blur(4px) !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
