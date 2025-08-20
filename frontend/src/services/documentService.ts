@@ -1,4 +1,4 @@
-import { api } from '@/lib/api';
+import { apiClient } from '@/lib/api';
 
 export interface Document {
   id: string;
@@ -84,7 +84,7 @@ class DocumentService {
       if (filters.sortBy) params.append('sortBy', filters.sortBy);
       if (filters.sortOrder) params.append('sortOrder', filters.sortOrder);
       
-      const response = await api.get(`/documents?${params.toString()}`);
+      const response = await apiClient.get(`/documents?${params.toString()}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching documents:', error);
@@ -97,7 +97,7 @@ class DocumentService {
    */
   async getDocument(id: string): Promise<Document> {
     try {
-      const response = await api.get(`/documents/${id}`);
+      const response = await apiClient.get(`/documents/${id}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching document:', error);
@@ -123,7 +123,7 @@ class DocumentService {
       if (data.clientId) formData.append('clientId', data.clientId);
       if (data.eventId) formData.append('eventId', data.eventId);
 
-      const response = await api.post('/documents/upload', formData, {
+      const response = await apiClient.post('/documents/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -141,7 +141,7 @@ class DocumentService {
    */
   async updateDocument(id: string, data: Partial<DocumentUploadData>): Promise<Document> {
     try {
-      const response = await api.put(`/documents/${id}`, data);
+      const response = await apiClient.put(`/documents/${id}`, data);
       return response.data;
     } catch (error) {
       console.error('Error updating document:', error);
@@ -154,7 +154,7 @@ class DocumentService {
    */
   async updateDocumentStatus(id: string, status: Document['status']): Promise<Document> {
     try {
-      const response = await api.patch(`/documents/${id}/status`, { status });
+      const response = await apiClient.patch(`/documents/${id}/status`, { status });
       return response.data;
     } catch (error) {
       console.error('Error updating document status:', error);
@@ -167,7 +167,7 @@ class DocumentService {
    */
   async deleteDocument(id: string): Promise<void> {
     try {
-      await api.delete(`/documents/${id}`);
+      await apiClient.delete(`/documents/${id}`);
     } catch (error) {
       console.error('Error deleting document:', error);
       throw new Error('Falha ao excluir documento');
@@ -179,7 +179,7 @@ class DocumentService {
    */
   async getDocumentDownloadUrl(id: string): Promise<string> {
     try {
-      const response = await api.get(`/documents/${id}/download-url`);
+      const response = await apiClient.get(`/documents/${id}/download-url`);
       return response.data.url;
     } catch (error) {
       console.error('Error getting download URL:', error);
@@ -192,7 +192,7 @@ class DocumentService {
    */
   async downloadDocument(id: string, filename?: string): Promise<void> {
     try {
-      const response = await api.get(`/documents/${id}/download`, {
+      const response = await apiClient.get(`/documents/${id}/download`, {
         responseType: 'blob',
       });
       
@@ -216,7 +216,7 @@ class DocumentService {
    */
   async getDocumentPreviewUrl(id: string): Promise<string> {
     try {
-      const response = await api.get(`/documents/${id}/preview-url`);
+      const response = await apiClient.get(`/documents/${id}/preview-url`);
       return response.data.url;
     } catch (error) {
       console.error('Error getting preview URL:', error);
@@ -229,7 +229,7 @@ class DocumentService {
    */
   async getFolders(): Promise<DocumentFolder[]> {
     try {
-      const response = await api.get('/documents/folders');
+      const response = await apiClient.get('/documents/folders');
       return response.data;
     } catch (error) {
       console.error('Error fetching folders:', error);
@@ -249,7 +249,7 @@ class DocumentService {
    */
   async getStats(): Promise<DocumentStats> {
     try {
-      const response = await api.get('/documents/stats');
+      const response = await apiClient.get('/documents/stats');
       return response.data;
     } catch (error) {
       console.error('Error fetching document stats:', error);
@@ -262,7 +262,7 @@ class DocumentService {
    */
   async searchDocumentContent(query: string): Promise<Document[]> {
     try {
-      const response = await api.get(`/documents/search?q=${encodeURIComponent(query)}`);
+      const response = await apiClient.get(`/documents/search?q=${encodeURIComponent(query)}`);
       return response.data;
     } catch (error) {
       console.error('Error searching document content:', error);
@@ -275,7 +275,7 @@ class DocumentService {
    */
   async bulkUpdateStatus(documentIds: string[], status: Document['status']): Promise<void> {
     try {
-      await api.patch('/documents/bulk/status', {
+      await apiClient.patch('/documents/bulk/status', {
         documentIds,
         status
       });
@@ -287,7 +287,7 @@ class DocumentService {
 
   async bulkDelete(documentIds: string[]): Promise<void> {
     try {
-      await api.delete('/documents/bulk', {
+      await apiClient.delete('/documents/bulk', {
         data: { documentIds }
       });
     } catch (error) {
@@ -301,7 +301,7 @@ class DocumentService {
    */
   async generateShareLink(id: string, expiresIn?: number): Promise<string> {
     try {
-      const response = await api.post(`/documents/${id}/share`, {
+      const response = await apiClient.post(`/documents/${id}/share`, {
         expiresIn: expiresIn || 24 * 60 * 60 // 24 hours default
       });
       return response.data.shareUrl;

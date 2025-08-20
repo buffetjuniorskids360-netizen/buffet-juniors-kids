@@ -44,7 +44,7 @@ class ExportService {
   private async captureChartAsImage(chartElement: HTMLElement): Promise<string> {
     try {
       const canvas = await html2canvas(chartElement, {
-        backgroundColor: '#ffffff',
+        background: '#ffffff',
         scale: 2,
         useCORS: true,
         allowTaint: true,
@@ -298,7 +298,7 @@ class ExportService {
     }
 
     const summaryWorksheet = XLSX.utils.aoa_to_sheet(summaryData);
-    XLSX.utils.book_append_sheet(workbook, summaryWorksheet, 'Resumo', 0);
+    XLSX.utils.book_append_sheet(workbook, summaryWorksheet, 'Resumo');
 
     // Save the Excel file
     const fileName = options.fileName || `relatorio_executivo_${formatDate(new Date()).replace(/\//g, '-')}.xlsx`;
@@ -322,7 +322,7 @@ class ExportService {
     if (options.type === 'pdf') {
       // Capture the entire dashboard
       const canvas = await html2canvas(element, {
-        backgroundColor: '#ffffff',
+        background: '#ffffff',
         scale: 1.5,
         useCORS: true,
         allowTaint: true,

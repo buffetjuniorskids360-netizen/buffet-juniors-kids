@@ -112,7 +112,7 @@ export function useEvents(filters: EventFilters = {}) {
     setEvents(currentEvents => 
       currentEvents.map(event => 
         event.id === eventId 
-          ? { ...event, ...eventData, updatedAt: new Date() }
+          ? { ...event, ...eventData, date: eventData.date ? new Date(eventData.date) : event.date, updatedAt: new Date() }
           : event
       )
     );

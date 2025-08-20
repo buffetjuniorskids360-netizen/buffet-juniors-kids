@@ -348,12 +348,15 @@ export const calculatePaymentDistribution = (
 
   const totalAmount = payments.reduce((sum, p) => sum + parseFloat(p.amount), 0);
 
-  return Object.entries(distribution).map(([method, data]) => ({
-    method: getPaymentMethodLabel(method),
-    count: data.count,
-    amount: data.amount,
-    percentage: totalAmount > 0 ? (data.amount / totalAmount) * 100 : 0,
-  }));
+  return Object.entries(distribution).map(([method, data]) => {
+    const typedData = data as { count: number; amount: number };
+    return {
+      method: getPaymentMethodLabel(method),
+      count: typedData.count,
+      amount: typedData.amount,
+      percentage: totalAmount > 0 ? (typedData.amount / totalAmount) * 100 : 0,
+    };
+  });
 };
 
 // Calculate event status distribution for pie charts
@@ -367,12 +370,15 @@ export const calculateEventStatusDistribution = (
 
   const totalEvents = events.length;
 
-  return Object.entries(statusCounts).map(([status, count]) => ({
-    status: getStatusLabel(status),
-    count,
-    color: getStatusColor(status),
-    percentage: totalEvents > 0 ? (count / totalEvents) * 100 : 0,
-  }));
+  return Object.entries(statusCounts).map(([status, count]) => {
+    const numCount = count as number;
+    return {
+      status: getStatusLabel(status),
+      count: numCount,
+      color: getStatusColor(status),
+      percentage: totalEvents > 0 ? (numCount / totalEvents) * 100 : 0,
+    };
+  });
 };
 
 // Enhanced export data preparation for integration with new export service

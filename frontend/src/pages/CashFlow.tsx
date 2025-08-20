@@ -621,7 +621,7 @@ export default function CashFlow() {
                       <RechartsLineChart data={chartData}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" />
-                        <YAxis formatter={(value) => formatCurrency(value)} />
+                        <YAxis tickFormatter={(value) => formatCurrency(value)} />
                         <Tooltip 
                           formatter={(value, name) => [
                             formatCurrency(Number(value)), 
@@ -675,7 +675,7 @@ export default function CashFlow() {
                         <RechartsBarChart data={chartData}>
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="date" />
-                          <YAxis formatter={(value) => formatCurrency(value)} />
+                          <YAxis tickFormatter={(value) => formatCurrency(value)} />
                           <Tooltip 
                             formatter={(value, name) => [
                               formatCurrency(Number(value)), 

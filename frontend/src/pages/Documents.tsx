@@ -77,6 +77,16 @@ interface DocumentFolder {
   type: 'client' | 'event' | 'administrative' | 'financial';
 }
 
+// Utility function for status icons
+const getStatusIcon = (status: string) => {
+  switch (status) {
+    case 'approved': return <CheckCircle className="w-4 h-4 text-green-600" />;
+    case 'pending': return <Clock className="w-4 h-4 text-yellow-600" />;
+    case 'rejected': return <AlertCircle className="w-4 h-4 text-red-600" />;
+    default: return null;
+  }
+};
+
 export default function Documents() {
   const [, setLocation] = useLocation();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -194,15 +204,6 @@ export default function Documents() {
     }
   };
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'approved': return <CheckCircle className="w-4 h-4 text-green-600" />;
-      case 'pending': return <Clock className="w-4 h-4 text-yellow-600" />;
-      case 'rejected': return <AlertCircle className="w-4 h-4 text-red-600" />;
-      default: return null;
-    }
-  };
-
   const getFolderIcon = (type: string, isOpen = false) => {
     const IconComponent = isOpen ? FolderOpen : Folder;
     switch (type) {
@@ -277,7 +278,7 @@ export default function Documents() {
     // In a real application, this would download the actual file
     console.log('Downloading document:', document.name);
     // Simulate download
-    const link = document.createElement('a');
+    const link = window.document.createElement('a');
     link.href = '#'; // In real app, this would be the actual file URL
     link.download = document.name;
     link.click();

@@ -39,7 +39,8 @@
       "Bash(gh:*)",
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(set NODE_OPTIONS=--max-old-space-size=4096)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
