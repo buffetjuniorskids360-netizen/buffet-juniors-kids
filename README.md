@@ -1,7 +1,7 @@
 # 🎂 Buffet Junior's Kids - Sistema Financeiro
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/seu-usuario/buffet-juniors-kids)
-[![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge)](https://github.com/seu-usuario/buffet-juniors-kids/releases)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/buffetjuniorskids360-netizen/buffet-juniors-kids)
+[![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge)](https://github.com/buffetjuniorskids360-netizen/buffet-juniors-kids/releases)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 > **Sistema completo de gestão financeira para buffets infantis** - Transforme sonhos em realidade com nossa plataforma moderna e intuitiva.
@@ -60,7 +60,7 @@ Git            # Controle de versão
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/buffet-juniors-kids.git
+git clone https://github.com/buffetjuniorskids360-netizen/buffet-juniors-kids.git
 cd buffet-juniors-kids
 
 # 2. Instale dependências do backend
@@ -204,7 +204,7 @@ MIT License - Veja [LICENSE](LICENSE) para detalhes.
 
 **🎂 Feito com ❤️ para transformar sonhos em realidade**
 
-[![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/seu-usuario/buffet-juniors-kids)
+[![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/buffetjuniorskids360-netizen/buffet-juniors-kids)
 
 </div>
 
