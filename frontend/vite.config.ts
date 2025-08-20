@@ -17,7 +17,7 @@ export default defineConfig({
     host: true, // Permitir acesso externo
     proxy: {
       '/api': {
-        target: 'http://localhost:3008',
+        target: 'http://localhost:3010',
         changeOrigin: true,
         secure: false,
         configure: (proxy, _options) => {
