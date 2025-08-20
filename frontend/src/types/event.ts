@@ -35,7 +35,9 @@ export interface CreateEventData {
   notes?: string;
 }
 
-export interface UpdateEventData extends Partial<CreateEventData> {}
+export interface UpdateEventData extends Partial<CreateEventData> {
+  id?: string;
+}
 
 export interface EventFilters {
   search?: string;

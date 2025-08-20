@@ -14,7 +14,7 @@ import Reports from '@/pages/Reports';
 import CashFlow from '@/pages/CashFlow';
 import Documents from '@/pages/Documents';
 import About from '@/pages/About';
-import { pageVariants, pageTransition, respectMotionPreference } from '@/lib/animations';
+// Removed unused imports: pageVariants, pageTransition, respectMotionPreference
 import { useEffect } from 'react';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {

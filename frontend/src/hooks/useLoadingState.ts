@@ -39,8 +39,8 @@ export function useLoadingState(config: LoadingConfig = {}) {
     hasMinimumDelay: false,
   });
 
-  const timeoutRef = useRef<NodeJS.Timeout>();
-  const minimumDelayRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const minimumDelayRef = useRef<NodeJS.Timeout | null>(null);
 
   // Start loading with optional message
   const startLoading = useCallback((message?: string) => {

@@ -70,7 +70,7 @@ export class ApiClient {
 
     console.log(`📡 API Request: ${options.method || 'GET'} ${url}`);
 
-    let lastError: Error;
+    let lastError: Error = new Error('Request failed');
     
     for (let attempt = 0; attempt <= this.retryAttempts; attempt++) {
       try {

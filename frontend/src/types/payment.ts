@@ -37,7 +37,9 @@ export interface CreatePaymentData {
   notes?: string;
 }
 
-export interface UpdatePaymentData extends Partial<CreatePaymentData> {}
+export interface UpdatePaymentData extends Partial<CreatePaymentData> {
+  id?: string;
+}
 
 export interface PaymentFilters {
   search?: string;

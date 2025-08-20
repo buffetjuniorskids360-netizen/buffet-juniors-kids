@@ -28,7 +28,7 @@ export default function HeroSection({ onGetStarted }: HeroSectionProps) {
   const decorativeTransition = {
     duration: prefersReducedMotion ? 0 : isMobile ? 30 : 20,
     repeat: prefersReducedMotion ? 0 : Infinity,
-    ease: "linear"
+    ease: "linear" as const
   };
 
   return (
@@ -56,7 +56,7 @@ export default function HeroSection({ onGetStarted }: HeroSectionProps) {
           transition={{
             duration: prefersReducedMotion ? 0 : isMobile ? 35 : 25,
             repeat: prefersReducedMotion ? 0 : Infinity,
-            ease: "linear"
+            ease: "linear" as const
           }}
           className={`absolute -bottom-40 -left-40 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl ${
             isMobile ? 'w-72 h-72' : 'w-96 h-96'

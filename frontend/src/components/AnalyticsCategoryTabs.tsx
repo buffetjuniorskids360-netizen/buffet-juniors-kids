@@ -3,8 +3,7 @@ import {
   BarChart3, 
   Users, 
   Calendar,
-  TrendingUp,
-  ArrowRight
+  TrendingUp
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { 

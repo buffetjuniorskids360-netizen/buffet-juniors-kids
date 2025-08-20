@@ -168,19 +168,6 @@ export default function Login() {
                     </Button>
                   </motion.div>
 
-                  {/* Demo Credentials */}
-                  <motion.div 
-                    variants={itemVariants}
-                    className="p-4 bg-blue-50 border border-blue-200 rounded-lg"
-                  >
-                    <p className="text-xs text-blue-800 font-medium mb-2">
-                      Credenciais de demonstração:
-                    </p>
-                    <div className="text-xs text-blue-700 space-y-1">
-                      <div>Username: <code className="bg-blue-100 px-1 rounded">admin</code></div>
-                      <div>Senha: <code className="bg-blue-100 px-1 rounded">admin123</code></div>
-                    </div>
-                  </motion.div>
                 </motion.form>
               </CardContent>
             </Card>
